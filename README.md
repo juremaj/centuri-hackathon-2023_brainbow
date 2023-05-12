@@ -1,13 +1,17 @@
 # centuri-hackathon-2023_brainbow
-Repo for the Brainbow project at Centuri Hackathon 2023
+Welcome to the repo for the Brainbow project at Centuri Hackathon 2023!
 
-Requirements:
+![image1](https://github.com/juremaj/centuri-hackathon-2023_brainbow/blob/main/media/example_imgs/barrel_cytbow_01.png)
+
+## Requirements
+
 1) Laptop with some free space (20 GB for full data or 300 MB for truncated version)
 2) Local conda installation
 3) Access to git through command line
 4) Github account
 5) Optional but useful: FIJI/ImageJ or another GUI for viewing and manipulating tiffs
 
+![gif1](https://github.com/juremaj/centuri-hackathon-2023_brainbow/blob/main/media/example_imgs/nucbow_zsweep.gif)
 
 ## Setup
 
