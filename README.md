@@ -44,7 +44,7 @@ conda create --name brainbow_hack
 conda activate brainbow_hack
 ```
 
-5) Install basic dependencies
+5) Install basic dependencies (alternatively you can also use the `environment.yml` file in the root of this repo)
 ```
 conda install -c conda-forge numpy
 conda install -c conda-forge matplotlib
