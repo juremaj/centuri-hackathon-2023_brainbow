@@ -20,3 +20,19 @@ def fit_tsne_1d(data):
 
     tsne_emb = tsne.fit(data.T)
     return tsne_emb
+
+
+def norm(img):
+    return (img - np.min(img))/np.max(img)
+
+def saturate(norm_img, prop_vmax=0.5):
+    norm_img[norm_img>prop_vmax] = prop_vmax
+    return norm(norm_img)
+
+def get_img_rgb(img_r, img_g, img_b, prop_vmax_r=1, prop_vmax_g=0.5, prop_vmax_b=0.5):
+    r = saturate(norm(img_r), prop_vmax=prop_vmax_r)
+    g = saturate(norm(img_g), prop_vmax=prop_vmax_g)
+    b = saturate(norm(img_b), prop_vmax=prop_vmax_b)
+    
+    img_rgb = np.stack((r, g, b)).transpose(1, 2, 0)
+    return img_rgb

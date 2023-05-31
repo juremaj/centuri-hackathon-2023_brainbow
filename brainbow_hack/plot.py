@@ -59,12 +59,12 @@ def plot_acts_sorted(tstamps, data, embedding, bottom_plot='Mean', add_plot=None
         save_filename = os.path.join(save_path, title)
         plt.savefig(save_filename)
         
-def plot_rois_cont_colorcoded(xpix, ypix, image_array, c_cells=None, title='', cmap='jet', save_path=None):
+def plot_rois_cont_colorcoded(xpix, ypix, image_array, c_cells=None, title='', cmap='jet', save_path=None, vmax_fact=1/2):
     
     warnings.filterwarnings("ignore") # just for hackathon (annoying!)
     ## start of function
     if c_cells is None:
-        colors = ['C0'] * len(xpix) # set color to default if not specified
+        colors = ['white'] * len(xpix) # set color to default if not specified
     else:
         colors = map_vec_to_colors(c_cells)
 
@@ -72,12 +72,15 @@ def plot_rois_cont_colorcoded(xpix, ypix, image_array, c_cells=None, title='', c
     fig, ax = plt.subplots(figsize=(10,10),dpi=200)
 
     # Display the normalized image
-    ax.imshow(image_array, cmap='gray', vmax=2/3*np.max(image_array)) # saturating a bit
+    ax.imshow(image_array, cmap='gray', vmax=vmax_fact*np.max(image_array)) # saturating a bit
 
     count = 0
     # Plot each ROI contour with a different color
+    
+    
+    
     for roi_coords in zip(ypix, xpix):
-        roi_patch = np.zeros_like(image_array, dtype=np.float32)
+        roi_patch = np.zeros(image_array.shape[:2], dtype=np.float32)
         roi_patch[roi_coords] = 1
         contours = ax.contour(roi_patch, levels=[0.5], colors=[colors[count]], alpha=1, linewidths=0.5)
         count+=1

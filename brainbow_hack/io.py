@@ -6,6 +6,7 @@ from PIL import Image
 def load_avg_movie(ds):
     ops = np.load(f'data/{ds}/physiology/neural_activity/ops.npy', allow_pickle=True).item()
     avg_movie = ops['meanImg']
+    avg_movie = (avg_movie - np.min(avg_movie))/np.max(avg_movie)
     return avg_movie
 
 def load_rois(ds):
