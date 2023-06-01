@@ -16,6 +16,43 @@ Matching cellular cluster from one day to the next through graph-matching techni
 
 ![abstract](https://github.com/juremaj/centuri-hackathon-2023_brainbow/blob/main/media/graphical-abstract.png)
 
+## Data outline
+All together we provide 4 datasets, roughtly organised in increasing complexity. Here's a brief overview:
+
+- Dataset 1 (ds1): This dataset contains the anatomical (brainbow) and physiological (functional calcium imaging) data. This should allow us to solve the first two goals, linking cell lineage and neural activity. The quality of the recording is relatively good, but the data is only available for a single day.
+- Dataset 2 (ds2): A simple dataset to implement and benchmark registration algorithms. It consists of only a single channel (red) anatomical data, but the same field of view is recorded on multiple consecutive days. These images then need to be registered.
+- Dataset 3 (ds3): Same as ds2, but more challenging images (less clear correspondance).
+- Dataset 4 (ds4): Most complex dataset with both anatomy and physiology (as in ds1) for multiple days in a row. To analyse this data we will need to combine all the points from the easier datasets above (ontogeny-pysiology relationship, registration...). This should allow us to answer the final goal of the project (is the ontogeny-physiology relationship stable).
+
+The rough outline for the data organisation is:
+```
+- data/
+    - ds#/
+        - day1/
+            - anatomy/
+                - red.tif
+                - blue.tif
+                - green.tif
+            - physiology/
+                - neural_activity/
+                    - F.npy
+                    - ops.npy
+        - day2/
+            ...
+        ...
+        - dayN/
+            ...
+```
+
+The `anatomy` subfolder contains the RGB channels for the brainbow data and the `physiology/neural_activity` contains the time-series (calcium traces) as `F.npy` and some additional metadata for each trace (such as its ROI within the FOV) in `ops.npy`. 
+
+(Which exact folders are present in a particular dataset will of course depend on which modalities are given (e. g. ds2 only has anatomy) or for how many days the data is given for that dataset (e. g. ds1 only has a single day))
+
+If this sounds a bit complicated or unclear don't worry :relaxed:, we will give a more extensive introduction into how the data was acquired, preprocessed etc. at the begining of the hackathon.
+
+## Link to data
+
+You can download all four datasets from ![here](https://filesender.renater.fr/?s=download&token=3d3b079c-3311-442f-a305-90fb18ef33ec). Then you can just put them in a folder named `data` in the root of this repository (This is where the library/notebook expects the data to live).
 
 ## Requirements
 
