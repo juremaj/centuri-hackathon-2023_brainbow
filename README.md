@@ -52,7 +52,7 @@ If this sounds a bit complicated or unclear don't worry :relaxed:, we will give 
 
 ## Link to data
 
-You can download all four datasets from ![here](https://filesender.renater.fr/?s=download&token=3d3b079c-3311-442f-a305-90fb18ef33ec). Then you can just put them in a folder named `data` in the root of this repository (This is where the library/notebook expects the data to live).
+You can download all four datasets from [here](https://filesender.renater.fr/?s=download&token=3d3b079c-3311-442f-a305-90fb18ef33ec). Then you can just put them in a folder named `data` in the root of this repository (This is where the library/notebook expects the data to live).
 
 ## Requirements
 
