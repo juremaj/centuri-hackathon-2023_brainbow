@@ -56,7 +56,7 @@ You can download all four datasets from [here](https://filesender.renater.fr/?s=
 
 ## Requirements
 
-1) Laptop with some free space (20 GB for full data or 300 MB for truncated version)
+1) Laptop with some free space (5 GB for raw and preprocessed data or 500 MB for only pre-processed data)
 2) Local conda installation
 3) Access to git through command line
 4) Github account
