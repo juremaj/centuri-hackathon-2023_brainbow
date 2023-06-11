@@ -54,6 +54,27 @@ If this sounds a bit complicated or unclear don't worry :relaxed:, we will give 
 
 You can download all four datasets from [here](https://filesender.renater.fr/?s=download&token=3d3b079c-3311-442f-a305-90fb18ef33ec). Then you can just put them in a folder named `data` in the root of this repository (This is where the library/notebook expects the data to live).
 
+## Milestones
+The current idea is to tackle the problem by starting from eiter of the two modalities. A part of the team would take a 'nature' point of view - finding structure in ontogeny (anatomy) and seeing if it is predictive of neural activity (physiology). The second, 'nurture' sub-team would approach the problem in the opposite direction (from neural activity/physiology to ontogeny/anatomy). 
+
+As a brief introduction we provided some basic plotting functions to have a first look at the data. This is available in the [intro.ipynb](https://github.com/juremaj/centuri-hackathon-2023_brainbow/blob/main/intro.ipynb) notebook in the root of this repo. These will be useful for the whole team to get a bit more familiar with the data.
+After that we thought of some milestones for the two sub-teams. Here's a brief outline:
+
+### Nature team
+1) extract average RGB for each ROI (this data is low-d, 3 features for neuron)
+2) scatter the colors pairwise and then in 3D. Do they seem to cluster?
+3) cluster the cells using a clustering algorithm. Some algorithms you could try as a start are K-means or Gaussian mixture models. You can use sklearn implementations: [link](https://scikit-learn.org/stable/modules/clustering.html).
+4) does the clustering work nicely? Try to optimise the number of clusters that you use as the hyperparameter for the clustering algorithm (for example check silhouette values).
+5) how does this relate to activity? The first easy thing to try is pairwise correlations of the neural activity traces. You can simply compute this by passing the neural activity matrix through the [numpy.corrcoef](https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html) function. Do the pairs which belong to the same color group have a higher pairwise correlation of their timeseries?
+
+### Nurture team
+1) visualise the time-series in 2-d by an embedding algorithm (you can try for example [tSNE][https://opentsne.readthedocs.io/en/stable/] or [UMAP](https://umap-learn.readthedocs.io/en/latest/)) (this data is very high-d, one time-series for neuron). Do the embeddings seem to cluster in 2d?
+2) try to cluster the time series using a clustering algorithm to get groups of cells with similar activation profiles ('assemblies'). You can start with the same as suggested above: [link](https://scikit-learn.org/stable/modules/clustering.html). Visualise the outputs by sorting the 'rasters' (all time-series matrix) by cluster label (first few rows of matrix - cluster 0, next rows - cluster 1 etc.).
+3) can we somehow justify our selection for the number of clusters? (also see above)
+4) once we have the clusters: take cells from each cluster and look at the rgb values of these cells. Do cells belonging to the same activity cluster have more similar RGB values?
+
+# Setup
+
 ## Requirements
 
 1) Laptop with some free space (5 GB for raw and preprocessed data or 500 MB for only pre-processed data)
@@ -64,7 +85,7 @@ You can download all four datasets from [here](https://filesender.renater.fr/?s=
 
 ![gif1](https://github.com/juremaj/centuri-hackathon-2023_brainbow/blob/main/media/example_imgs/nucbow_zsweep.gif)
 
-## Setup
+## Installation
 
 1) Clone github repo:
 ```
