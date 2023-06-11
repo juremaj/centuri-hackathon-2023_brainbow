@@ -73,6 +73,8 @@ After that we thought of some milestones for the two sub-teams. Here's a brief o
 3) can we somehow justify our selection for the number of clusters? (also see above)
 4) once we have the clusters: take cells from each cluster and look at the rgb values of these cells. Do cells belonging to the same activity cluster have more similar RGB values?
 
+![gif1](https://github.com/juremaj/centuri-hackathon-2023_brainbow/blob/main/media/example_imgs/nucbow_zsweep.gif)
+
 # Setup
 
 ## Requirements
@@ -82,8 +84,6 @@ After that we thought of some milestones for the two sub-teams. Here's a brief o
 3) Access to git through command line
 4) Github account
 5) Optional but useful: FIJI/ImageJ or another GUI for viewing and manipulating tiffs
-
-![gif1](https://github.com/juremaj/centuri-hackathon-2023_brainbow/blob/main/media/example_imgs/nucbow_zsweep.gif)
 
 ## Installation
 
